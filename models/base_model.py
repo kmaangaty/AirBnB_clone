@@ -6,6 +6,7 @@ from datetime import datetime
 
 class BaseModel:
     """BaseModel"""
+
     def __init__(self, *args, **kwargs):
         """BaseModel"""
         if not kwargs:
@@ -38,7 +39,7 @@ class BaseModel:
         dc = {}
         dc.update(self.__dict__)
         dc.update({'__class__':
-                          (str(type(self)).split('.')[-1]).split('\'')[0]})
+                       (str(type(self)).split('.')[-1]).split('\'')[0]})
         dc['created_at'] = self.created_at.isoformat()
         dc['updated_at'] = self.updated_at.isoformat()
         return dc
